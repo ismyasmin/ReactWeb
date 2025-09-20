@@ -6,9 +6,13 @@ const Navbar = () => {
 
         <div className="links"></div>
         <a href="/">Home</a>
-        <a href="/create">New Blog</a>
-
-    </nav>
+        {/*Outer braces in stlye meaning a dynamic value is being used
+        inside is the javascript object*/}
+        <a href="/create" style={{
+            //key pairs; css property & value for that propert
+            color: "white",
+            backgroundColor: "pink"}}>New Blog</a>
+</nav>
     );
 }
  
