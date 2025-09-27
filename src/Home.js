@@ -8,24 +8,32 @@ const Home = () => {
         { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
     ]); 
 
+    const [name, setName] = useState('mario');
+
+
     const handleDelete = (id) => 
         {
-            const newBlogs = blogs.filter(blog => blog.id !== id);{/*to store the filtered array temporarily*/}
+            ///*to store the filtered array temporarily
+            const newBlogs = blogs.filter(blog => blog.id !== id);
             setBlogs(newBlogs);
         }
 
         useEffect(() =>
             {
                 console.log('use effect ran');
-                console.log(blogs);
-            });
+                console.log(name);
+            },[name]);
+            
 
     return (  
         <div className="home">
             <BlogList blogs = {blogs} title ="All Blogs" handleDelete={handleDelete}/> {/* Property name in the tag with dynamic value*/}
+            <button onClick={() => setName('luigi')}>Change name</button> {/*anonymous function which invokes setName*/}
+            <p>{name}</p>
             {/* <BlogList blogs = {blogs.filter((blog) => blog.author === 'mario')} title ="Mario's Blogs"/> fires a callback function for each item in the array, if it returns true, it keeps it in the array. if false, it filters out the array & returns a new array with only the items that we dont filter out of it included & we're passing that data in then as a prop */}
         </div>
     );
 }
  
+
 export default Home;
