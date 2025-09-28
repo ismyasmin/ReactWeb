@@ -1,36 +1,29 @@
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
-    const [blogs, setBlogs] = useState([
-        { title: 'My new website', body: 'lorem ipsum...', author: 'mario', id: 1 },
-        { title: 'Welcome party!', body: 'lorem ipsum...', author: 'yoshi', id: 2 },
-        { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
-    ]); 
+    const [blogs, setBlogs] = useState(null); 
 
     const [name, setName] = useState('mario');
 
-
-    const handleDelete = (id) => 
-        {
-            ///*to store the filtered array temporarily
-            const newBlogs = blogs.filter(blog => blog.id !== id);
-            setBlogs(newBlogs);
-        }
-
         useEffect(() =>
             {
-                console.log('use effect ran');
-                console.log(name);
-            },[name]);
+                fetch('http://localhost:8000/blogs') //Endpoint: http://localhost:8000/blogs
+                .then(res =>{
+                    return res.json()
+                })
+                .then((data) =>
+                {
+                    console.log(data);
+                    setBlogs(data)
+                })
+            },[]);
             
 
     return (  
         <div className="home">
-            <BlogList blogs = {blogs} title ="All Blogs" handleDelete={handleDelete}/> {/* Property name in the tag with dynamic value*/}
-            <button onClick={() => setName('luigi')}>Change name</button> {/*anonymous function which invokes setName*/}
-            <p>{name}</p>
-            {/* <BlogList blogs = {blogs.filter((blog) => blog.author === 'mario')} title ="Mario's Blogs"/> fires a callback function for each item in the array, if it returns true, it keeps it in the array. if false, it filters out the array & returns a new array with only the items that we dont filter out of it included & we're passing that data in then as a prop */}
+            {/*conditonal templating, logical evaluates the left first & if true, evaluates the right then outputs. - how to conditionally output parts of templates*/}
+            {blogs && <BlogList blogs = {blogs} title ="All Blogs"/>}  {/*Property name in the tag with dynamic value*/}
         </div>
     );
 }
