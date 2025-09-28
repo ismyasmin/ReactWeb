@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 import Home from './Home';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'; // can use browser router we're importing using the name in this file
-
+import Create from './Create';
 function App() {
   return (
     <Router> {/*first step*/}
@@ -10,11 +10,12 @@ function App() {
         {/* emmit setup* */}
         <div className="content">
         <Switch>
-          {/*individual routes - create a route for each page using Route component*/}
-          <Route path="/">
-            {/*nest componeent inside this route to show when a user visits this route*/}
-            <Home />
-            </Route> {/*property path - the route  */}
+          <Route exact path="/"> {/*individual routes - create a route for each page using Route component*/}
+            <Home /> {/*nest component inside this route to show when a user visits this route*/}
+          </Route> {/*property path - the route  */}
+          <Route exact path="/create">
+            <Create />
+          </Route>
         </Switch>  {/*remove Home component and replace with Switch - Switch componenet makes sure only one route shows at any one time. All routes go inside here*/}
         </div> 
       </div>
