@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 {/*stateless funcuitonal component, template for navbar: */}
 const Navbar = () => {
     return (
@@ -5,14 +7,13 @@ const Navbar = () => {
         <h1>The Dojo Blog</h1>
 
         <div className="links"></div>
-        <a href="/">Home</a>
-        {/*Outer braces in stlye meaning a dynamic value is being used
-        inside is the javascript object*/}
-        <a href="/create" style={{
-            //key pairs; css property & value for that propert
+        <Link to="/">Home</Link>
+        
+        <Link to="/create" style={{
+            //key pairs; css property & value for that property
             color: "white",
-            backgroundColor: "pink"}}>New Blog</a>
-</nav>
+            backgroundColor: "pink"}}>New Blog</Link>
+</nav> //Outer braces in stlye meaning a dynamic value is being used inside is the javascript object
     );
 }
  
