@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-/* base styles, * targeting every element  */
+/*base styles, * targeting every element */
 * {
-  margin: 0; /* stripping margin */
+  margin: 0; /*stripping margin*/
   font-family: "Quicksand"; 
   color: #333;
 }
 
-.navbar
-{
+.navbar {
   padding: 20px;
   display: flex;
   align-items: center; /*vertically aligned*/
@@ -38,7 +37,7 @@
   padding: 20px;
 }
 
-/* blog previews / list */
+/*blog previews / list*/
 .blog-preview {
   padding: 10px 16px;
   margin: 20px 0;
@@ -57,4 +56,14 @@
 
 .blog-preview a {
   text-decoration: none;
+}
+
+/*blog details page*/
+.blog-details h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+.blog-details div {
+  margin: 20px 0;
 }
