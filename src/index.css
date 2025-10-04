@@ -67,3 +67,35 @@
 .blog-details div {
   margin: 20px 0;
 }
+
+/*create new blog form*/
+.create {
+  max-width: 400px; /*restrict form width for better readability*/
+  margin: 0 auto; /*center form horizontally*/
+  text-align: center;
+}
+.create label {
+  text-align: left;
+  display: block; /*labels take full width so inputs appear below*/
+}
+.create h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.create input, .create textarea, .create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0; /*space around each input*/
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block; /*forces inputs to appear on new lines*/
+}
+.create button {
+  background: #f1356d;
+  color: #fff;
+  border: 0; /*remove default border*/
+  padding: 8px; /*inner spacing for button text*/
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /*pointer cursor on hover*/
+}
