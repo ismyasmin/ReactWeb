@@ -1,4 +1,5 @@
 import {useState } from "react";
+import {useHistory} from 'react-router-dom';
 
 const Create = () => {
     const [title, setTitle] = useState('');
@@ -6,6 +7,7 @@ const Create = () => {
     const [author, setAuthor] = useState('yoshi');
     const [isPending, setIsPending] = useState(false); /*set to false because when page is first loaded, not making a request,
      only after form is submitted */
+     const history = useHistory();
 
     const handleSubmit = (e) =>{
         e.preventDefault(); // prevents the page from being refreshed when button is clicked on
@@ -22,6 +24,8 @@ const Create = () => {
         }).then(() => {
             console.log('new blog added');
             setIsPending(false);
+            //history.go(-1);
+            history.push('/');
         })
      
     }
