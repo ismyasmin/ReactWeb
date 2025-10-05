@@ -3,6 +3,7 @@ import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; // can use browser router we're importing using the name in this file
 import Create from './Create';
 import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 function App() {
   return (
     <Router> {/*first step*/}
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path ="/blogs/:id">
             <BlogDetails /> {/*render BlogDetails component */}
+          </Route>
+          <Route path="*"> {/*catch any other route*/}
+            <NotFound />
           </Route>
         </Switch>  {/*remove Home component and replace with Switch - Switch componenet makes sure only one route shows at any one time. All routes go inside here*/}
         </div> 
